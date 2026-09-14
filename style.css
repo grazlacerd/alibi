@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Meddon&family=Montez&display=swap');
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -10,37 +15,67 @@ body {
   width: 100%;
   min-height: 100vh;
   font-family: "Afacad", sans-serif;
+  color: #333333;
+}
+
+@keyframes entradaSuave {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes surgirAoRolar {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .navbar {
   position: absolute;
   width: 100%;
-  height: 50px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 30px 40px;
+  padding: 0 5vw;
   color: #ffffff;
-  font-size: 20px;
-  border-radius: 5px;
+  font-size: 18px;
+  margin-top: 10px;
   z-index: 10;
+  animation: entradaSuave 1s ease forwards;
 }
 
 .navbar nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 70px;
+  gap: 40px;
 }
 
 .navbar nav a {
   color: #ffffff;
   text-decoration: none;
   cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.navbar nav a:hover {
+  opacity: 0.8;
 }
 
 .logo {
-  font-family: "Meddon", sans-serif;
+  font-family: "Meddon", cursive;
+  font-size: 28px;
 }
 
 .inicio {
@@ -57,23 +92,33 @@ body {
 
 .inicio h1 {
   font-family: "Afacad", sans-serif;
-  font-size: 30px;
-  font-weight: normal;
-  margin: 0 80px;
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0;
+  line-height: 0.9;
+  padding: 0 7vw;
+  animation: entradaSuave 1s ease forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
 }
 
 .inicio h1 span {
-  font-family: "Meddon", sans-serif;
-  font-size: 130px;
-  line-height: 200px;
-  margin: 0 30px;
+  font-family: "Meddon", cursive;
+  font-size: 110px;
+  line-height: 1.7;
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  padding: 0 5vw;
 }
 
 .inicio p {
-  font-size: 20px;
-  line-height: 1;
-  margin-top: 0;
-  margin-left: 300px;
+  font-size: 22px;
+  max-width: 600px;
+  margin: 0 20vw;
+  animation: entradaSuave 1s ease forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
 }
 
 .inicio::before {
@@ -94,40 +139,50 @@ body {
 
 .sobre-parte1 {
   background-color: #f5f5f5;
+  padding: 100px 3vw;
+}
+
+.sobre-parte1 h2,
+.descricao,
+.galeria > div {
+  animation: surgirAoRolar ease forwards;
+  animation-timeline: view();
+  animation-range: entry 10% cover 30%;
 }
 
 .sobre-parte1 h2 {
-  font-family: "Montez", sans-serif;
-  font-size: 90px;
+  font-family: "Montez", cursive;
+  font-size: 80px;
+  font-weight: 400;
   text-align: center;
-  margin: 0;
-  padding-top: 120px;
+  margin: 0 0 20px 0;
 }
 
 .descricao {
-  font-size: 30px;
+  font-size: 24px;
   text-align: center;
   margin-top: 0;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 }
 
 .galeria {
-  padding: 50px;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .galeria > div {
   display: flex;
   align-items: center;
-  margin-top: 50px;
-  font-family: "Montez", sans-serif;
-  font-size: 80px;
+  margin-top: 40px;
+  font-family: "Montez", cursive;
+  font-size: 60px;
 }
 
 .galeria div:first-of-type {
   margin-top: 0;
 }
 
-.img-dois, 
+.img-dois,
 .img-quatro {
   flex-direction: row-reverse;
 }
@@ -143,26 +198,36 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  margin: 0;
+  padding-bottom: 80px;
+}
+
+.subtitulo,
+.container-cafe,
+.container-livro,
+.textofinal {
+  animation: surgirAoRolar ease forwards;
+  animation-timeline: view();
+  animation-range: entry 10% cover 30%;
 }
 
 .subtitulo {
-  font-size: 50px;
+  font-size: 40px;
+  color: #ffffff;
   text-align: center;
-  padding-top: 100px;
+  padding-top: 80px;
+  margin-bottom: 40px;
 }
 
-.container-cafe, 
+.container-cafe,
 .container-livro {
   width: 100%;
-  height: 100%;
   color: #ffffff;
-  margin: 0;
 }
 
 .container-cafe {
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
 .container {
@@ -177,7 +242,7 @@ body {
   display: grid;
   grid-template-columns: 200px 1fr 200px;
   align-items: center;
-  margin: 0 100px;
+  margin: 0 8vw;
   opacity: 0;
   transition: opacity 0.6s ease;
 }
@@ -186,22 +251,22 @@ body {
   opacity: 1;
 }
 
-.grupo img, 
+.grupo img,
 .grupo p {
   grid-row: 1;
 }
 
 .grupo p {
   grid-column: 2;
-  font-family: "Montez", sans-serif;
-  font-size: 60px;
+  font-family: "Montez", cursive;
+  font-size: 52px;
   text-align: center;
   margin: 0;
 }
 
 .grupo img {
   grid-column: 1;
-    border-radius: 100%;
+  border-radius: 50%;
 }
 
 .container.dois img {
@@ -213,12 +278,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  padding-top: 50px;
+  padding-top: 60px;
 }
 
 .container-livro p {
   margin-top: 0;
+  font-size: 40px;
 }
 
 .livros {
@@ -230,14 +295,18 @@ body {
 }
 
 .livros img {
-  margin: 30px;
+  margin: 20px;
   padding: 10px;
   background-color: #f5f5f5;
   transition: transform 0.5s ease;
+  animation: surgirAoRolar ease forwards;
+  animation-timeline: view();
+  animation-range: entry 5% cover 25%;
 }
 
-.livros img, .container-cafe img {
-    box-shadow: 1px 1px 20px #0c0c0c;
+.livros img, 
+.container-cafe img {
+  box-shadow: 1px 1px 20px #0c0c0c;
 }
 
 .livros img:hover {
@@ -245,29 +314,37 @@ body {
 }
 
 .textofinal {
-  padding: 40px;
+  padding: 60px 3vw 20px 3vw;
 }
 
 .textofinal p {
-  font-size: 28px;
+  font-size: 24px;
   color: #ffffff;
   text-align: center;
 }
 
 .textofinal p span {
-  font-family: "Meddon", sans-serif;
+  font-family: "Meddon", cursive;
 }
 
 .reserva {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #ffffff;
   overflow: hidden;
+  padding: 60px 20px;
+}
+
+.reserva h2,
+.reserva form {
+  animation: surgirAoRolar ease forwards;
+  animation-timeline: view();
+  animation-range: entry 10% cover 30%;
 }
 
 .reserva::before {
@@ -287,35 +364,40 @@ body {
 }
 
 .reserva h2 {
-  font-family: "Montez", sans-serif;
-  font-size: 60px;
-  font-weight: normal;
+  font-family: "Montez", cursive;
+  font-size: 64px;
+  font-weight: 400;
+  margin-bottom: 20px;
 }
 
 .reserva form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 400px;
 }
 
 .reserva form div {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 100%;
   margin-bottom: 20px;
 }
 
 .reserva form label {
-  font-size: 22px;
-  font-weight: normal;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 6px;
 }
 
 .reserva form input {
   width: 100%;
-  padding: 13px;
+  padding: 12px 15px;
   border-radius: 5px;
   border: none;
   background-color: #f5f5f5;
+  font-size: 16px;
 }
 
 .reserva form input:focus {
@@ -328,27 +410,44 @@ body {
   color: #ffffff;
   border: none;
   border-radius: 5px;
-  margin: 10px;
+  margin-top: 10px;
   cursor: pointer;
   font-size: 18px;
-  width: 95px;
-  padding: 10px;
+  width: 120px;
+  padding: 12px;
+  transition: background-color 0.3s ease;
 }
 
-.mais-infos, footer {
-    text-align: center;
+.reserva form button:hover {
+  background-color: #3b1d0e;
+}
+
+.mais-infos, 
+footer {
+  text-align: center;
+}
+
+.mais-infos {
+  margin-top: 20px;
 }
 
 .mais-infos a {
-    text-decoration: none;
-    color: #ffffff;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.mais-infos a:hover {
+  text-decoration: underline;
 }
 
 footer {
-    background-color: #f5f5f5;
-    padding: 10px;
+  background-color: #f5f5f5;
+  padding: 20px;
+  color: #333333;
 }
 
 footer p {
-    margin: 0;
+  margin: 0;
+  font-size: 14px;
 }
