@@ -23,6 +23,7 @@ body {
     opacity: 0;
     transform: translateY(40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -34,6 +35,7 @@ body {
     opacity: 0;
     transform: translateY(60px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -144,7 +146,7 @@ body {
 
 .sobre-parte1 h2,
 .descricao,
-.galeria > div {
+.galeria>div {
   animation: surgirAoRolar ease forwards;
   animation-timeline: view();
   animation-range: entry 10% cover 30%;
@@ -170,7 +172,7 @@ body {
   margin: 0 auto;
 }
 
-.galeria > div {
+.galeria>div {
   display: flex;
   align-items: center;
   margin-top: 40px;
@@ -214,8 +216,8 @@ body {
   font-size: 40px;
   color: #ffffff;
   text-align: center;
-  padding-top: 80px;
-  margin-bottom: 40px;
+  padding-top: 60px;
+  margin-bottom: 20px;
 }
 
 .container-cafe,
@@ -227,22 +229,25 @@ body {
 .container-cafe {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 .container {
   position: relative;
   height: 200px;
-  margin: 0 10px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
 }
 
 .grupo {
   position: absolute;
   inset: 0;
-  display: grid;
-  grid-template-columns: 200px 1fr 200px;
+  display: flex;
   align-items: center;
-  margin: 0 8vw;
+  justify-content: center;
+  gap: 100px;
+  margin: 0;
   opacity: 0;
   transition: opacity 0.6s ease;
 }
@@ -251,26 +256,33 @@ body {
   opacity: 1;
 }
 
-.grupo img,
 .grupo p {
-  grid-row: 1;
-}
-
-.grupo p {
-  grid-column: 2;
   font-family: "Montez", cursive;
-  font-size: 52px;
+  font-size: 50px;
   text-align: center;
   margin: 0;
+  line-height: 1;
+}
+
+.container.dois .grupo.quatro p {
+  max-width: 300px;
 }
 
 .grupo img {
-  grid-column: 1;
   border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  box-shadow: 1px 1px 20px #0c0c0c;
 }
 
-.container.dois img {
-  grid-column: 3;
+.container.um .grupo,
+.container.tres .grupo {
+  flex-direction: row;
+}
+
+.container.dois .grupo {
+  flex-direction: row-reverse;
 }
 
 .container-livro {
@@ -278,39 +290,39 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 60px;
+  padding-top: 40px;
 }
 
 .container-livro p {
   margin-top: 0;
   font-size: 40px;
+  margin-bottom: 20px;
 }
 
 .livros {
-  width: 86%;
+  width: 85%;
+  max-width: 1100px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  gap: 20px;
 }
 
 .livros img {
-  margin: 20px;
-  padding: 10px;
+  width: calc(20% - 16px);
+  max-width: 180px;
+  height: auto;
+  padding: 8px;
   background-color: #f5f5f5;
-  transition: transform 0.5s ease;
-  animation: surgirAoRolar ease forwards;
-  animation-timeline: view();
-  animation-range: entry 5% cover 25%;
-}
-
-.livros img, 
-.container-cafe img {
   box-shadow: 1px 1px 20px #0c0c0c;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .livros img:hover {
-  transform: translateY(-5px);
+  transform: scale(1.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  z-index: 10;
 }
 
 .textofinal {
@@ -422,7 +434,7 @@ body {
   background-color: #3b1d0e;
 }
 
-.mais-infos, 
+.mais-infos,
 footer {
   text-align: center;
 }
